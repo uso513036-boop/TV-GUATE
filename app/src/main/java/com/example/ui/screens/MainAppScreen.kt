@@ -27,12 +27,9 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Fullscreen
 import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material.icons.filled.Security
-import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Tv
 import androidx.compose.material.icons.outlined.DateRange
-import androidx.compose.material.icons.outlined.Security
 import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material.icons.outlined.Tv
 import androidx.compose.material3.Card
@@ -79,14 +76,12 @@ import com.example.ui.theme.GuateDarkSurface
 import com.example.ui.theme.GuateDarkSurfaceVariant
 import com.example.ui.theme.GuateGrayText
 import com.example.ui.theme.GuateLiveRed
-import com.example.ui.theme.GuateShieldGreen
 import com.example.ui.theme.GuateWhite
 import com.example.viewmodel.GuateTvViewModel
 
 enum class MainNavTab(val title: String, val activeIcon: ImageVector, val inactiveIcon: ImageVector) {
     CHANNELS("En Vivo", Icons.Filled.Tv, Icons.Outlined.Tv),
-    EPG_GUIDE("Guía EPG", Icons.Filled.DateRange, Icons.Outlined.DateRange),
-    GEO_SCANNER("Geo-Scanner", Icons.Filled.Security, Icons.Outlined.Security),
+    EPG_GUIDE("Guía TV", Icons.Filled.DateRange, Icons.Outlined.DateRange),
     FAVORITES("Favoritos", Icons.Filled.Star, Icons.Outlined.StarBorder)
 }
 
@@ -132,8 +127,7 @@ fun MainAppScreen(
             if (uiState.activePlayingChannel == null || !uiState.isPlayerFullscreen) {
                 GuateTopBar(
                     searchQuery = uiState.searchQuery,
-                    onSearchQueryChange = { viewModel.updateSearchQuery(it) },
-                    onGeoScanClick = { selectedTab = MainNavTab.GEO_SCANNER }
+                    onSearchQueryChange = { viewModel.updateSearchQuery(it) }
                 )
             }
         },
@@ -178,15 +172,6 @@ fun MainAppScreen(
                         onToggleReminder = { show, channelName ->
                             viewModel.toggleProgramReminder(show, channelName)
                         }
-                    )
-                }
-                MainNavTab.GEO_SCANNER -> {
-                    GeoScannerScreen(
-                        channels = GuatemalaTvRepository.channels,
-                        diagnostics = uiState.geoDiagnostics,
-                        isScanning = uiState.isGeoScanInProgress,
-                        onStartScan = { viewModel.runGeoDiagnostics() },
-                        onPlayChannel = { viewModel.playChannel(it) }
                     )
                 }
                 MainNavTab.FAVORITES -> {

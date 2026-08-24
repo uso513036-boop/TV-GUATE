@@ -21,7 +21,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material.icons.filled.Tv
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -36,7 +35,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
@@ -48,14 +46,12 @@ import com.example.ui.theme.GuateDarkBackground
 import com.example.ui.theme.GuateDarkBorder
 import com.example.ui.theme.GuateDarkSurface
 import com.example.ui.theme.GuateGrayText
-import com.example.ui.theme.GuateShieldGreen
 import com.example.ui.theme.GuateWhite
 
 @Composable
 fun GuateTopBar(
     searchQuery: String,
     onSearchQueryChange: (String) -> Unit,
-    onGeoScanClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     var isSearchExpanded by remember { mutableStateOf(false) }
@@ -119,52 +115,20 @@ fun GuateTopBar(
                     }
                 }
 
-                // Right action buttons: Geo-Shield & Search
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                // Right action button: Search toggle
+                IconButton(
+                    onClick = { isSearchExpanded = !isSearchExpanded },
+                    modifier = Modifier
+                        .size(38.dp)
+                        .background(GuateDarkSurface, CircleShape)
+                        .testTag("search_icon_button")
                 ) {
-                    // Geo Shield Quick Indicator
-                    Surface(
-                        shape = RoundedCornerShape(20.dp),
-                        color = GuateShieldGreen.copy(alpha = 0.15f),
-                        border = androidx.compose.foundation.BorderStroke(1.dp, GuateShieldGreen.copy(alpha = 0.4f)),
-                        modifier = Modifier.clickable { onGeoScanClick() }
-                    ) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Shield,
-                                contentDescription = "Escudo Geo-Bloqueo",
-                                tint = GuateShieldGreen,
-                                modifier = Modifier.size(14.dp)
-                            )
-                            Spacer(modifier = Modifier.width(4.dp))
-                            Text(
-                                text = "Geo-Shield",
-                                color = GuateShieldGreen,
-                                fontSize = 11.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
-                    }
-
-                    IconButton(
-                        onClick = { isSearchExpanded = !isSearchExpanded },
-                        modifier = Modifier
-                            .size(38.dp)
-                            .background(GuateDarkSurface, CircleShape)
-                            .testTag("search_icon_button")
-                    ) {
-                        Icon(
-                            imageVector = if (isSearchExpanded) Icons.Default.Close else Icons.Default.Search,
-                            contentDescription = "Buscar Canales",
-                            tint = GuateWhite,
-                            modifier = Modifier.size(20.dp)
-                        )
-                    }
+                    Icon(
+                        imageVector = if (isSearchExpanded) Icons.Default.Close else Icons.Default.Search,
+                        contentDescription = "Buscar Canales",
+                        tint = GuateWhite,
+                        modifier = Modifier.size(20.dp)
+                    )
                 }
             }
 

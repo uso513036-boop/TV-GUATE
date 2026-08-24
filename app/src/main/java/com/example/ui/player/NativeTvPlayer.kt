@@ -329,7 +329,7 @@ fun NativeTvPlayer(
                     ) {
                         Box(contentAlignment = Alignment.Center) {
                             Icon(
-                                imageVector = Icons.Default.Security,
+                                imageVector = Icons.Default.Refresh,
                                 contentDescription = null,
                                 tint = GuateLiveRed,
                                 modifier = Modifier.size(36.dp)
@@ -338,14 +338,14 @@ fun NativeTvPlayer(
                     }
                     Spacer(modifier = Modifier.height(14.dp))
                     Text(
-                        text = "Ajustando Señal de ${channel.name}",
+                        text = "Reconectando ${channel.name}",
                         color = Color.White,
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = "Activando enrutamiento con cabeceras de Guatemala para evadir bloqueo regional.",
+                        text = "Optimizando señal de transmisión en directo de Guatemala...",
                         color = Color.LightGray,
                         fontSize = 13.sp,
                         textAlign = androidx.compose.ui.text.style.TextAlign.Center
@@ -499,24 +499,22 @@ fun NativeTvPlayer(
                         }
                     }
 
-                    // Top Action Badges: Geo-Shield & Ad-Block Status
+                    // Top Action Badges: Official GT & Ad-Block Status
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        // Geo Shield Status Pill
+                        // Official GT Signal Pill
                         Surface(
-                            color = GuateShieldGreen.copy(alpha = 0.2f),
+                            color = GuateBluePrimary.copy(alpha = 0.25f),
                             shape = RoundedCornerShape(16.dp),
-                            border = androidx.compose.foundation.BorderStroke(1.dp, GuateShieldGreen.copy(alpha = 0.6f))
+                            border = androidx.compose.foundation.BorderStroke(1.dp, GuateBlueSecondary.copy(alpha = 0.6f))
                         ) {
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
                                 modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
                             ) {
-                                Icon(Icons.Default.Shield, contentDescription = null, tint = GuateShieldGreen, modifier = Modifier.size(14.dp))
-                                Spacer(modifier = Modifier.width(4.dp))
-                                Text("Geo-Protegido", color = GuateShieldGreen, fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                                Text("🇬🇹 Señal Oficial HD", color = GuateBlueSecondary, fontSize = 11.sp, fontWeight = FontWeight.Bold)
                             }
                         }
 

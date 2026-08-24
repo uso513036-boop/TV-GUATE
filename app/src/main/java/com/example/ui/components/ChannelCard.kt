@@ -241,7 +241,7 @@ fun ChannelCard(
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            // Footer Row: Geo-status badge, Resolution and Play CTA
+            // Footer Row: Guatemala origin, Resolution and Play CTA
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
@@ -251,24 +251,18 @@ fun ChannelCard(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(6.dp)
                 ) {
-                    // Geo-shield indicator
+                    // Guatemala Official badge
                     Surface(
                         shape = RoundedCornerShape(6.dp),
-                        color = GuateShieldGreen.copy(alpha = 0.15f)
+                        color = GuateBluePrimary.copy(alpha = 0.18f)
                     ) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
+                        Text(
+                            text = "🇬🇹 Guatemala",
+                            color = GuateBlueSecondary,
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.Bold,
                             modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
-                        ) {
-                            Icon(Icons.Default.Shield, contentDescription = null, tint = GuateShieldGreen, modifier = Modifier.size(11.dp))
-                            Spacer(modifier = Modifier.width(3.dp))
-                            Text(
-                                text = if (channel.hasGeoRestriction) "Bypass GT" else "Señal Directa",
-                                color = GuateShieldGreen,
-                                fontSize = 10.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
+                        )
                     }
 
                     // Resolution badge

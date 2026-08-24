@@ -273,16 +273,14 @@ fun FeaturedChannelHero(
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         Surface(
-                            color = GuateShieldGreen.copy(alpha = 0.2f),
+                            color = GuateBluePrimary.copy(alpha = 0.2f),
                             shape = RoundedCornerShape(8.dp)
                         ) {
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
                                 modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
                             ) {
-                                Icon(Icons.Default.Shield, contentDescription = null, tint = GuateShieldGreen, modifier = Modifier.size(13.dp))
-                                Spacer(modifier = Modifier.width(4.dp))
-                                Text("Anti Geo-Bloqueo", color = GuateShieldGreen, fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                                Text("🇬🇹 Señal Oficial HD", color = GuateBlueSecondary, fontSize = 11.sp, fontWeight = FontWeight.Bold)
                             }
                         }
                         Text("• Sin Publicidad Externa", color = GuateGrayText, fontSize = 11.sp)

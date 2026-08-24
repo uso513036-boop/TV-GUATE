@@ -28,8 +28,6 @@ object GuatemalaTvRepository {
             ),
             streamType = StreamType.HLS_NATIVE,
             customReferer = "https://www.chapintv.com/",
-            hasGeoRestriction = true,
-            geoOrigin = "Guatemala / Albavisión",
             resolution = "1080p Full HD"
         ),
         Channel(
@@ -47,8 +45,6 @@ object GuatemalaTvRepository {
             ),
             streamType = StreamType.HLS_NATIVE,
             customReferer = "https://www.chapintv.com/",
-            hasGeoRestriction = true,
-            geoOrigin = "Guatemala / Albavisión",
             resolution = "1080p Full HD"
         ),
         Channel(
@@ -66,8 +62,6 @@ object GuatemalaTvRepository {
             ),
             streamType = StreamType.HLS_NATIVE,
             customReferer = "https://www.chapintv.com/",
-            hasGeoRestriction = false,
-            geoOrigin = "Guatemala",
             resolution = "720p HD"
         ),
         Channel(
@@ -85,8 +79,6 @@ object GuatemalaTvRepository {
             ),
             streamType = StreamType.HLS_NATIVE,
             customReferer = "https://www.chapintv.com/",
-            hasGeoRestriction = true,
-            geoOrigin = "Guatemala",
             resolution = "720p HD"
         ),
         Channel(
@@ -105,8 +97,6 @@ object GuatemalaTvRepository {
             ),
             streamType = StreamType.HLS_NATIVE,
             customReferer = "https://www.tn23.tv/",
-            hasGeoRestriction = false,
-            geoOrigin = "Guatemala / Libre",
             resolution = "1080p Full HD"
         ),
         Channel(
@@ -125,8 +115,6 @@ object GuatemalaTvRepository {
             ),
             streamType = StreamType.HLS_NATIVE,
             customReferer = "https://www.guatevision.com/",
-            hasGeoRestriction = true,
-            geoOrigin = "Guatemala",
             resolution = "1080p Full HD"
         ),
         Channel(
@@ -144,8 +132,6 @@ object GuatemalaTvRepository {
             ),
             streamType = StreamType.HLS_NATIVE,
             customReferer = "https://canalantigua.tv/",
-            hasGeoRestriction = false,
-            geoOrigin = "Guatemala",
             resolution = "720p HD"
         ),
         Channel(
@@ -163,8 +149,6 @@ object GuatemalaTvRepository {
             ),
             streamType = StreamType.HLS_NATIVE,
             customReferer = "https://tvaztecaguate.com/",
-            hasGeoRestriction = true,
-            geoOrigin = "Guatemala",
             resolution = "1080p Full HD"
         ),
         Channel(
@@ -182,8 +166,6 @@ object GuatemalaTvRepository {
             ),
             streamType = StreamType.HLS_NATIVE,
             customReferer = "https://www.congreso.gob.gt/",
-            hasGeoRestriction = false,
-            geoOrigin = "Guatemala Oficial",
             resolution = "1080p Full HD"
         ),
         Channel(
@@ -201,8 +183,6 @@ object GuatemalaTvRepository {
             ),
             streamType = StreamType.HLS_NATIVE,
             customReferer = "https://prensa.gob.gt/",
-            hasGeoRestriction = false,
-            geoOrigin = "Guatemala Oficial",
             resolution = "1080p Full HD"
         ),
         Channel(
@@ -220,8 +200,6 @@ object GuatemalaTvRepository {
             ),
             streamType = StreamType.HLS_NATIVE,
             customReferer = "https://sonora.com.gt/",
-            hasGeoRestriction = false,
-            geoOrigin = "Guatemala",
             resolution = "720p HD"
         ),
         Channel(
@@ -239,8 +217,6 @@ object GuatemalaTvRepository {
             ),
             streamType = StreamType.HLS_NATIVE,
             customReferer = "https://www.tigosports.gt/",
-            hasGeoRestriction = true,
-            geoOrigin = "Guatemala / Deportes",
             resolution = "1080p Full HD"
         ),
         Channel(
@@ -258,8 +234,6 @@ object GuatemalaTvRepository {
             ),
             streamType = StreamType.HLS_NATIVE,
             customReferer = "https://mayatv.gt/",
-            hasGeoRestriction = false,
-            geoOrigin = "Guatemala",
             resolution = "720p HD"
         ),
         Channel(
@@ -277,8 +251,6 @@ object GuatemalaTvRepository {
             ),
             streamType = StreamType.HLS_NATIVE,
             customReferer = "https://veacanal.tv/",
-            hasGeoRestriction = false,
-            geoOrigin = "Guatemala",
             resolution = "720p HD"
         ),
         Channel(
@@ -296,8 +268,6 @@ object GuatemalaTvRepository {
             ),
             streamType = StreamType.HLS_NATIVE,
             customReferer = "https://enlace.org/",
-            hasGeoRestriction = false,
-            geoOrigin = "Guatemala / Iberoamérica",
             resolution = "1080p Full HD"
         ),
         Channel(
@@ -315,8 +285,6 @@ object GuatemalaTvRepository {
             ),
             streamType = StreamType.HLS_NATIVE,
             customReferer = "https://rtn.gt/",
-            hasGeoRestriction = false,
-            geoOrigin = "Guatemala Departamental",
             resolution = "720p HD"
         )
     )

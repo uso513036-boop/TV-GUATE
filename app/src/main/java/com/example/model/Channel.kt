@@ -30,8 +30,6 @@ data class Channel(
     val webPlayerUrl: String? = null,
     val customUserAgent: String? = "Mozilla/5.0 (Linux; Android 14; Mobile; rv:128.0) Gecko/128.0 Firefox/128.0",
     val customReferer: String? = null,
-    val hasGeoRestriction: Boolean = false,
-    val geoOrigin: String = "Guatemala / CA",
     val resolution: String = "1080p Full HD",
     val isLiveBroadcast: Boolean = true,
     val currentShowTitle: String = "",

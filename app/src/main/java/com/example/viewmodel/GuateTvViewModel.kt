@@ -10,18 +10,14 @@ import com.example.data.local.ProgramReminderEntity
 import com.example.data.local.WatchHistoryEntity
 import com.example.model.Channel
 import com.example.model.ChannelCategory
-import com.example.model.ChannelGeoDiagnostic
 import com.example.model.ChannelWithGuide
-import com.example.model.GeoHealthStatus
 import com.example.model.ProgramShow
-import com.example.service.GeoBlockDetector
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -32,8 +28,6 @@ data class GuateTvUiState(
     val searchQuery: String = "",
     val activePlayingChannel: Channel? = null,
     val isPlayerFullscreen: Boolean = false,
-    val isGeoScanInProgress: Boolean = false,
-    val geoDiagnostics: Map<String, ChannelGeoDiagnostic> = emptyMap(),
     val isGuideLoading: Boolean = false,
     val selectedChannelForGuideDetail: ChannelWithGuide? = null,
     val selectedProgramDetail: ProgramShow? = null
@@ -62,7 +56,6 @@ class GuateTvViewModel(application: Application) : AndroidViewModel(application)
     init {
         loadChannelsAndGuide()
         startPeriodicEpgUpdate()
-        runGeoDiagnostics()
     }
 
     fun loadChannelsAndGuide() {
@@ -172,24 +165,6 @@ class GuateTvViewModel(application: Application) : AndroidViewModel(application)
                     )
                 )
             }
-        }
-    }
-
-    fun runGeoDiagnostics() {
-        viewModelScope.launch(Dispatchers.IO) {
-            _uiState.value = _uiState.value.copy(isGeoScanInProgress = true)
-            val channels = GuatemalaTvRepository.channels
-            val results = mutableMapOf<String, ChannelGeoDiagnostic>()
-
-            for (channel in channels) {
-                val diagnostic = GeoBlockDetector.diagnoseChannel(channel)
-                results[channel.id] = diagnostic
-                _uiState.value = _uiState.value.copy(
-                    geoDiagnostics = results.toMap()
-                )
-            }
-
-            _uiState.value = _uiState.value.copy(isGeoScanInProgress = false)
         }
     }
 
