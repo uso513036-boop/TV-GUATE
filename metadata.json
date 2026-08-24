@@ -1,0 +1,6 @@
+{
+  "name": "GuateTV En Vivo",
+  "description": "App de televisión con canales de Guatemala, guía de programación en tiempo real, reproductor nativo integrado sin redirecciones y detector de geo-bloqueo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
